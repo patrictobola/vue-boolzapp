@@ -207,7 +207,6 @@ const app = createApp({
         newMessage: '',
         currentContact: 0,
         currentIndex: 0,
-        hasSelected: false,
       }
       
       
@@ -221,6 +220,12 @@ const app = createApp({
           return contact.name.toLowerCase().includes(word)
         })
       },
+
+      // Genero un nuovo id per ogni nuovo messaggio 
+      newIdMessage () {
+        let highestId = this.contacts[this.currentIndex].messages.reduce((result, cv) => cv.id > result ? cv.id : result, 0)
+        return ++highestId
+      }
     },
 
     methods: {
@@ -243,7 +248,7 @@ const app = createApp({
       // Pusho all'interno dell'oggetto dedicato un nuovo messaggio
       addNewMessage () {
         const newMessage = {
-          id: 10,
+          id: this.newIdMessage,
           date: '',
           message: this.newMessage,
           status: 'sent'
