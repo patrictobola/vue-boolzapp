@@ -5,9 +5,10 @@ body {
     rgba(220, 219, 210, 1) 90%,
     rgba(0, 150, 136, 1) 90%
   );
+  font-family: "Raleway", sans-serif;
 }
 
-/* ! LAYOUT */
+/* ! MAIN LAYOUT */
 #app {
   height: 100vh;
 }
@@ -17,7 +18,7 @@ section {
   margin: auto 0;
 }
 .contacts {
-  background-color: yellowgreen;
+  background-color: white;
   width: 40%;
 }
 .chatSection {
@@ -32,23 +33,53 @@ nav {
   align-items: center;
   padding: 0 20px;
 }
+
+/* ! Internal layout  */
 ul {
   margin-bottom: 0;
   list-style-type: none;
   padding-left: 0;
 }
+.searchBar {
+  background-color: #fafafa;
+}
 .contactCard {
   height: 80px;
-  background-color: lightcoral;
+  border-top: 1px solid #e9ebeb;
+}
+.contactCard.selected {
+  background-color: #e9ebeb;
 }
 img {
   height: 60px;
   border-radius: 50%;
 }
+#profilePic {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  margin-right: 10px;
+}
 .autoScroll {
   overflow-y: auto;
   height: calc(100% - 116px);
 }
+
+i {
+  font-size: 1.3rem;
+  margin: 0 3px;
+  color: #b1b1b1;
+  cursor: pointer;
+  padding: 5px;
+}
+footer i {
+  color: #6b7376;
+}
+i:hover {
+  color: rgba(0, 0, 0, 0.4);
+}
+/* Chat layout  */
+
 .chat {
   background-image: url(../img/mine.jpg);
   height: calc(100% - 140px);
