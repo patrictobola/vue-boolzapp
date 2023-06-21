@@ -132,9 +132,15 @@
             <!-- Chat messages  -->
             <div class="chat">
                 <ul class="d-flex flex-column px-5">
-                    <li class="chatMessage sentMessage">Frase 1</li>
+                    <li v-for="message in contacts[this.currentIndex].messages" class="chatMessage"
+                        :class="{ receivedMessage : message.status === 'received', sentMessage : message.status === 'sent'}">
+                        {{message.message}}
+                    </li>
+
+                    <!-- TODO REMOVE -->
+                    <!-- <li class="chatMessage sentMessage">Frase 1</li>
                     <li class="chatMessage sentMessage">Frase 2Frase 2Frase 2Frase 2Frase 2</li>
-                    <li class="chatMessage receivedMessage">Frase ricevuta</li>
+                    <li class="chatMessage receivedMessage">Frase ricevuta</li> -->
                 </ul>
             </div>
             <!-- Chat Send message field with navbar  -->
