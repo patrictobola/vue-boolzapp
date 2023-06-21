@@ -32,3 +32,12 @@ nav {
   align-items: center;
   padding: 0 20px;
 }
+ul {
+  margin-bottom: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+.contactCard {
+  height: 80px;
+  background-color: lightcoral;
+}
