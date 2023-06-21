@@ -1,0 +1,25 @@
+body {
+  background: rgb(220, 219, 210);
+  background: linear-gradient(
+    0deg,
+    rgba(220, 219, 210, 1) 90%,
+    rgba(0, 150, 136, 1) 90%
+  );
+}
+
+#app {
+  height: 100vh;
+}
+
+.contacts {
+  background-color: yellowgreen;
+  width: 40%;
+  height: 90%;
+  margin: auto 0;
+}
+.chat {
+  height: 90%;
+  margin: auto 0;
+  background-color: gray;
+  width: 60%;
+}
