@@ -20,13 +20,13 @@ section {
   background-color: yellowgreen;
   width: 40%;
 }
-.chat {
+.chatSection {
   background-color: gray;
   width: 60%;
 }
 nav {
   height: 70px;
-  background-color: gainsboro;
+  background-color: #eaeaea;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,4 +48,27 @@ img {
 .autoScroll {
   overflow-y: auto;
   height: calc(100% - 116px);
+}
+.chat {
+  background-image: url(../img/mine.jpg);
+  height: calc(100% - 140px);
+  padding: 10px 0;
+}
+
+.chatMessage {
+  margin: 5px 0;
+  min-height: 40px;
+  border-radius: 10px;
+  min-width: 100px;
+  line-height: 40px;
+  padding: 0 15px;
+}
+
+.sentMessage {
+  align-self: flex-end;
+  background-color: #d5f9ba;
+}
+.receivedMessage {
+  align-self: flex-start;
+  background-color: #fff;
 }
