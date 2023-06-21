@@ -45,3 +45,7 @@ img {
   height: 60px;
   border-radius: 50%;
 }
+.autoScroll {
+  overflow-y: auto;
+  height: calc(100% - 116px);
+}
