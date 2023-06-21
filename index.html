@@ -68,8 +68,9 @@
             <div class="autoScroll">
 
                 <!-- Single chat item  -->
-                <ul class="contactCard">
-                    <li v-for="contact in contacts" class="h-100">
+                <ul>
+                    <li v-for="contact in contacts" @click="selectedContact" class="contactCard h-100"
+                        :class="{selected : selected}">
                         <!-- Contact -->
                         <ul class="d-flex align-items-center h-100 px-3 py-2">
                             <!-- Contact image  -->
