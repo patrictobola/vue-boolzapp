@@ -224,20 +224,35 @@ const app = createApp({
     },
 
     methods: {
-      // Metodo per selezionare un contatto 
+      // Metodo per importare id e index di un contatto 
       setCurrentContactID(target) {
         this.currentContact = target;
-        this.hasSelected = true;
         this.currentIndex = --target;
       },
-    isSelected(target) {
-      if (target === this.currentContact)
-      return this.hasSelected = true
+      // Seleziono un contatto 
+      isSelected(target) { 
+        if (target === this.currentContact)
+        return true
+
       },
       // Al click rimuovo un contatto dalla lista 
       removeContact(target){
         this.contacts = this.contacts.filter(contact => target !== contact.id)  
       },
+
+      // Pusho all'interno dell'oggetto dedicato un nuovo messaggio
+      addNewMessage () {
+        const newMessage = {
+          id: 10,
+          date: '',
+          message: this.newMessage,
+          status: 'sent'
+        }
+        
+        this.contacts[this.currentIndex].messages.push(newMessage)
+    
+        this.newMessage = ''
+      }
     },
   })
   app.mount("#app");
