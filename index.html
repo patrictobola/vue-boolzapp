@@ -75,7 +75,7 @@
                         <!-- Contact -->
                         <ul class="d-flex align-items-center h-100 px-3 py-2">
                             <!-- Contact image  -->
-                            <li><img :src="'img/avatar' + contact.avatar + '.jpg' " alt=""></li>
+                            <li><img :src="'img/avatar' + contact.avatar + '.jpg' " :alt="contact.name"></li>
                             <!-- Contact message  -->
                             <li class="align-self-start flex-grow-1 ms-2">
                                 <ul>
@@ -101,7 +101,25 @@
             <!-- Navbar in chat section  -->
             <nav>
                 <!-- Contact Name  -->
-                <div>Contact info</div>
+                <div>
+                    <ul>
+                        <li class="">
+                            <!-- Contact -->
+                            <ul class="d-flex align-items-center h-100 px-3 py-2">
+                                <!-- Contact image  -->
+                                <li><img :src="'img/avatar' + contacts[this.currentIndex].avatar + '.jpg' "
+                                        :alt="contacts.name"></li>
+                                <!-- Contact message  -->
+                                <li class="align-self-start flex-grow-1 ms-2">
+                                    <ul>
+                                        <li>{{contacts[this.currentIndex].name}}</li>
+                                        <li>Ultimo accesso alle blabla</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
                 <!-- Chat menù  -->
                 <div>
                     <ul class="d-flex m-0 list-unstyled">

@@ -206,6 +206,7 @@ const app = createApp({
         searchValue: '',
         newMessage: '',
         currentContact: 0,
+        currentIndex: 0,
         hasSelected: false,
       }
       
@@ -226,9 +227,12 @@ const app = createApp({
       // Metodo per selezionare un contatto 
       setCurrentContactID(target) {
         this.currentContact = target;
+        this.hasSelected = true;
+        this.currentIndex = --target;
       },
     isSelected(target) {
-      return target === this.currentContact
+      if (target === this.currentContact)
+      return this.hasSelected = true
       },
       // Al click rimuovo un contatto dalla lista 
       removeContact(target){
