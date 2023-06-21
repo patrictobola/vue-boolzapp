@@ -1,4 +1,4 @@
-console.log('JS OK', Vue)
+console.log('JS OK')
 
 // Estrapolo il metodo createApp 
 const { createApp } = Vue;
@@ -205,12 +205,15 @@ const app = createApp({
         ],
         searchValue: '',
         newMessage: '',
+        currentContact: 0,
+        hasSelected: false,
       }
       
       
     },
 
     computed: {
+      // Filtro i contatti e li aggiorno automaticamente in base alla barra di ricerca 
       filteredContacts () {
         const word = this.searchValue.toLowerCase();
         return this.contacts.filter((contact) => {
@@ -220,8 +223,13 @@ const app = createApp({
     },
 
     methods: {
-
-
+      // Metodo per selezionare un contatto 
+      setCurrentContactID(target) {
+        this.currentContact = target;
+      },
+    isSelected(target) {
+      return target === this.currentContact
+      },
       // Al click rimuovo un contatto dalla lista 
       removeContact(target){
         this.contacts = this.contacts.filter(contact => target !== contact.id)  
