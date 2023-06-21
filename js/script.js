@@ -202,18 +202,27 @@ const app = createApp({
               }
             ],
           }
-        ]
-      
+        ],
+        searchValue: '',
+        newMessage: '',
       }
       
       
     },
 
     computed: {
-
+      filteredContacts () {
+        const word = this.searchValue.toLowerCase();
+        return this.contacts.filter((contact) => {
+          return contact.name.toLowerCase().includes(word)
+        })
+      },
     },
 
     methods: {
+
+
+      // Al click rimuovo un contatto dalla lista 
       removeContact(target){
         this.contacts = this.contacts.filter(contact => target !== contact.id)  
       },
