@@ -53,6 +53,7 @@ img {
   background-image: url(../img/mine.jpg);
   height: calc(100% - 140px);
   padding: 10px 0;
+  overflow-y: auto;
 }
 
 .chatMessage {
