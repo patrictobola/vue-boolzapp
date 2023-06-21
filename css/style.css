@@ -41,3 +41,7 @@ ul {
   height: 80px;
   background-color: lightcoral;
 }
+img {
+  height: 60px;
+  border-radius: 50%;
+}
