@@ -20,3 +20,11 @@
 - All'interno della chat section comincio a distinguere i messaggi ricevuti da quelli inviati
   - class received a sinistra
   - class sent a destra
+
+# JS
+
+- Comincio visualizzando in modo dinamico i nostri contatti nella sezione contatti
+  - **PER** ogni _contacts_ creo una card nella parte dei contatti
+- Al click del _contact_ visualizzo nella relativa sessione la chat con l'utente
+  - **SE** clicco sull'utente
+    - Aggiungo classe _selected_ alla card contatto
