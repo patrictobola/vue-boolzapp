@@ -69,30 +69,11 @@
 
                 <!-- Single chat item  -->
                 <ul class="contactCard">
-                    <li class="h-100">
+                    <li v-for="contact in contacts" class="h-100">
                         <!-- Contact -->
                         <ul class="d-flex align-items-center h-100 px-3 py-2">
                             <!-- Contact image  -->
-                            <li><img src="img/avatar_1.jpg" alt=""></li>
-                            <!-- Contact message  -->
-                            <li class="align-self-start flex-grow-1 ms-2">
-                                <ul>
-                                    <li>Michele</li>
-                                    <li>Ultimo messaggio</li>
-                                </ul>
-                            </li>
-                            <!-- Contact date message  -->
-                            <li class="align-self-start">Ora</li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- Single chat item  -->
-                <ul class="contactCard">
-                    <li class="h-100">
-                        <!-- Contact -->
-                        <ul class="d-flex align-items-center h-100 px-3 py-2">
-                            <!-- Contact image  -->
-                            <li><img src="img/avatar_1.jpg" alt=""></li>
+                            <li><img :src="'img/avatar' + contact.avatar + '.jpg' " alt=""></li>
                             <!-- Contact message  -->
                             <li class="align-self-start flex-grow-1 ms-2">
                                 <ul>
