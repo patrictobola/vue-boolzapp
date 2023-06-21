@@ -214,7 +214,9 @@ const app = createApp({
     },
 
     methods: {
-
+      removeContact(target){
+        this.contacts = this.contacts.filter(contact => target !== contact.id)  
+      },
     },
   })
   app.mount("#app");

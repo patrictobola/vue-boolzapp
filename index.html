@@ -69,8 +69,8 @@
 
                 <!-- Single chat item  -->
                 <ul>
-                    <li v-for="contact in contacts" @click="selectedContact" class="contactCard h-100"
-                        :class="{selected : selected}">
+                    <li v-for="contact in contacts" @click.right="removeContact(contact.id)" class="contactCard h-100"
+                        :class="{selected : !contact.visible}">
                         <!-- Contact -->
                         <ul class="d-flex align-items-center h-100 px-3 py-2">
                             <!-- Contact image  -->
