@@ -43,6 +43,10 @@ ul {
 .contacts li {
   cursor: pointer;
 }
+#contextMenu li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
 
 .searchBar {
   background-color: #fafafa;

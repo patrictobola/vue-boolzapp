@@ -136,6 +136,16 @@
                         {{message.message}}
                     </li>
                 </ul>
+
+                <!-- Piccolo context menù fai da te -->
+                <div id="contextMenu" class="d-flex">
+                    <ul class="bg-white h6">
+                        <li class="p-2">Fai qualcosa di fighissimo</li> <!--So che vi trollerò così muahaha-->
+                        <li class="p-2">Cancella messaggio!</li>
+                    </ul>
+                </div>
+
+
             </div>
             <!-- Chat Send message field with navbar  -->
             <footer>
@@ -144,7 +154,7 @@
                     <div class="text-center mx-3"><i class="fa fa-face-grin-tongue"></i></div>
                     <!-- Message Field  -->
                     <div class="input-group h-100 py-2 flex-grow-1">
-                        <input v-model="newMessage" @keyup.enter="addNewMessage('sent')" type="text"
+                        <input v-model="newMessage" @keyup.enter="addNewMessage('sent', newMessage)" type="text"
                             class="form-control border border-light" placeholder="Invia un messaggio">
                     </div>
                     <!-- Send button or Send vocal -->
@@ -153,6 +163,7 @@
                 </nav>
             </footer>
         </section>
+
     </div>
 
 

@@ -205,7 +205,7 @@ const app = createApp({
         ],
         searchValue: '',
         newMessage: '',
-        currentId:1,
+        currentId: 1,
       }
       
       
@@ -263,18 +263,24 @@ const app = createApp({
       },
 
       // All'invio del messaggio imposto un timer e ricevo una risposta statica dopo 1 secondo di attesa
+
+      // TODO fix 
+      // Ho provato a centralizzarla ma se risfrutto il metodo sopra il setTimeout ogni secondo stampa un messaggio ricevuto.
       addReceivedMessage (statusMessage) {
         setTimeout(() => {
           const newMessage = {
             id: this.newIdMessage,
             date: '',
-            message: message,
+            message: 'Ok, daje!',
             status: statusMessage
           }
           
           this.currentContact.messages.push(newMessage)
         },1000)
-      }
+      },
+
+
+      
     },
   })
   app.mount("#app");
