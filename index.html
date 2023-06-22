@@ -133,7 +133,7 @@
             <div class="chat">
                 <ul class="d-flex flex-column px-5">
                     <li v-for="message in contacts[this.currentIndex].messages" class="chatMessage"
-                        :class="{ receivedMessage : message.status === 'received', sentMessage : message.status === 'sent'}">
+                        :class="message.status">
                         {{message.message}}
                     </li>
                 </ul>

@@ -103,11 +103,11 @@ i:hover {
   padding: 0 15px;
 }
 
-.sentMessage {
+.sent {
   align-self: flex-end;
   background-color: #d5f9ba;
 }
-.receivedMessage {
+.received {
   align-self: flex-start;
   background-color: #fff;
 }
