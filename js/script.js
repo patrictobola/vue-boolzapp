@@ -205,8 +205,7 @@ const app = createApp({
         ],
         searchValue: '',
         newMessage: '',
-        currentContact: 0,
-        currentIndex: 0,
+        currentId:1,
       }
       
       
@@ -223,20 +222,23 @@ const app = createApp({
 
       // Genero un nuovo id per ogni nuovo messaggio 
       newIdMessage () {
-        let highestId = this.contacts[this.currentIndex].messages.reduce((result, cv) => cv.id > result ? cv.id : result, 0)
+        let highestId = this.currentContact.messages.reduce((result, cv) => cv.id > result ? cv.id : result, 0)
         return ++highestId
+      },
+      currentContact(){
+        return this.contacts.find((contact) =>  contact.id === this.currentId);
       }
     },
 
     methods: {
       // Metodo per importare id e index di un contatto 
       setCurrentContactID(target) {
-        this.currentContact = target;
-        this.currentIndex = --target;
+        this.currentId = target;
+       
       },
       // Seleziono un contatto 
       isSelected(target) { 
-        if (target === this.currentContact)
+        if (target === this.currentId)
         return true
 
       },
@@ -246,17 +248,32 @@ const app = createApp({
       },
 
       // Pusho all'interno dell'oggetto dedicato un nuovo messaggio
-      addNewMessage () {
+      addNewMessage (statusMessage, message) {
         const newMessage = {
           id: this.newIdMessage,
           date: '',
-          message: this.newMessage,
-          status: 'sent'
+          message: message,
+          status: statusMessage
         }
         
-        this.contacts[this.currentIndex].messages.push(newMessage)
+        this.currentContact.messages.push(newMessage)
     
         this.newMessage = ''
+        this.addReceivedMessage('received');
+      },
+
+      // All'invio del messaggio imposto un timer e ricevo una risposta statica dopo 1 secondo di attesa
+      addReceivedMessage (statusMessage) {
+        setTimeout(() => {
+          const newMessage = {
+            id: this.newIdMessage,
+            date: '',
+            message: message,
+            status: statusMessage
+          }
+          
+          this.currentContact.messages.push(newMessage)
+        },1000)
       }
     },
   })
