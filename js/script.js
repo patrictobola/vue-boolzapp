@@ -206,6 +206,7 @@ const app = createApp({
         searchValue: '',
         newMessage: '',
         currentId: 1,
+        currentMessageId: 1,
       }
       
       
@@ -225,16 +226,21 @@ const app = createApp({
         let highestId = this.currentContact.messages.reduce((result, cv) => cv.id > result ? cv.id : result, 0)
         return ++highestId
       },
+
+
       currentContact(){
         return this.contacts.find((contact) =>  contact.id === this.currentId);
       }
     },
 
     methods: {
-      // Metodo per importare id e index di un contatto 
+      // Metodo per importare id di un contatto 
       setCurrentContactID(target) {
         this.currentId = target;
-       
+      },
+      // Metodo per importare id di un messaggio 
+      setCurrentMessageID(target) {
+        this.currentMessageId = target;
       },
       // Seleziono un contatto 
       isSelected(target) { 
@@ -243,8 +249,8 @@ const app = createApp({
 
       },
       // Al click rimuovo un contatto dalla lista 
-      removeContact(target){
-        this.contacts = this.contacts.filter(contact => target !== contact.id)  
+      removeMessage(target){
+        this.currentContact.messages = this.currentContact.messages.filter(message => target !== message.id)  
       },
 
       // Pusho all'interno dell'oggetto dedicato un nuovo messaggio

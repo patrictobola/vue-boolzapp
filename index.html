@@ -132,18 +132,20 @@
             <!-- Chat messages  -->
             <div class="chat">
                 <ul class="d-flex flex-column px-5">
-                    <li v-for="message in currentContact.messages" class="chatMessage" :class="message.status">
+                    <li v-for="message in currentContact.messages"
+                        @click="setCurrentMessageID(message.id), removeMessage(message.id)" class="chatMessage"
+                        :class="message.status">
                         {{message.message}}
+                        <!-- Piccolo context menù fai da te -->
+                        <!-- <div id="contextMenu" class="d-flex">
+                            <ul class="m-0 bg-white h6">
+                                <li class="p-2">Fai qualcosa di fighissimo</li> So che vi trollerò così muahaha-->
+                        <!-- <li class="p-2">Cancella messaggio!</li>
+                            </ul>
+                        </div> -->
                     </li>
                 </ul>
 
-                <!-- Piccolo context menù fai da te -->
-                <div id="contextMenu" class="d-flex">
-                    <ul class="bg-white h6">
-                        <li class="p-2">Fai qualcosa di fighissimo</li> <!--So che vi trollerò così muahaha-->
-                        <li class="p-2">Cancella messaggio!</li>
-                    </ul>
-                </div>
 
 
             </div>
