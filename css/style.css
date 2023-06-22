@@ -43,11 +43,11 @@ ul {
 .contacts li {
   cursor: pointer;
 }
-/* #contextMenu {
+#contextMenu {
   position: absolute;
   bottom: -20px;
   right: 10px;
-} */
+}
 #contextMenu li:hover {
   background-color: rgba(0, 0, 0, 0.1);
   cursor: pointer;

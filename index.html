@@ -66,7 +66,7 @@
 
             </div>
             <!-- Contacts  -->
-            <div class="autoScroll">
+            <div class="autoScroll" @click="resetCurrentMessageID">
 
                 <!-- Single chat item  -->
                 <ul>
@@ -132,17 +132,17 @@
             <!-- Chat messages  -->
             <div class="chat">
                 <ul class="d-flex flex-column px-5">
-                    <li v-for="message in currentContact.messages"
-                        @click="setCurrentMessageID(message.id), removeMessage(message.id)" class="chatMessage"
-                        :class="message.status">
+                    <li v-for="message in currentContact.messages" @click="setCurrentMessageID(message.id)"
+                        class="chatMessage" :class="message.status">
                         {{message.message}}
                         <!-- Piccolo context menù fai da te -->
-                        <!-- <div id="contextMenu" class="d-flex">
+                        <div id="contextMenu" v-if="currentMessageId === message.id" class="d-flex">
                             <ul class="m-0 bg-white h6">
-                                <li class="p-2">Fai qualcosa di fighissimo</li> So che vi trollerò così muahaha-->
-                        <!-- <li class="p-2">Cancella messaggio!</li>
+                                <li @click="resetCurrentMessageID" class="p-2">Fai qualcosa di fighissimo</li>
+                                <!-- So che vi trollerò così muahaha-->
+                                <li @click="removeMessage(message.id)" class="p-2">Cancella messaggio!</li>
                             </ul>
-                        </div> -->
+                        </div>
                     </li>
                 </ul>
 

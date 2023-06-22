@@ -206,7 +206,7 @@ const app = createApp({
         searchValue: '',
         newMessage: '',
         currentId: 1,
-        currentMessageId: 1,
+        currentMessageId: 0,
       }
       
       
@@ -237,6 +237,10 @@ const app = createApp({
       // Metodo per importare id di un contatto 
       setCurrentContactID(target) {
         this.currentId = target;
+      },
+      // Resettare id messaggio al click fuori dalla casella messaggio 
+      resetCurrentMessageID() {
+        this.currentMessageId = 0
       },
       // Metodo per importare id di un messaggio 
       setCurrentMessageID(target) {
