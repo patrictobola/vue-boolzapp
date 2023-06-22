@@ -254,7 +254,7 @@ const app = createApp({
       },
       // Al click rimuovo un contatto dalla lista 
       removeMessage(target){
-        this.currentContact.messages = this.currentContact.messages.filter(message => target !== message.id)  
+        return this.currentContact.messages = this.currentContact.messages.filter(message => target !== message.id)  
       },
 
       // Pusho all'interno dell'oggetto dedicato un nuovo messaggio
@@ -265,11 +265,13 @@ const app = createApp({
           message: message,
           status: statusMessage
         }
-        
-        this.currentContact.messages.push(newMessage)
-    
-        this.newMessage = ''
-        this.addReceivedMessage('received');
+        if (message.trim() !== ''){
+
+          this.currentContact.messages.push(newMessage)
+          
+          this.newMessage = ''
+          this.addReceivedMessage('received');
+        }
       },
 
       // All'invio del messaggio imposto un timer e ricevo una risposta statica dopo 1 secondo di attesa

@@ -140,7 +140,8 @@
                             <ul class="m-0 bg-white h6">
                                 <li @click="resetCurrentMessageID" class="p-2">Fai qualcosa di fighissimo</li>
                                 <!-- So che vi trollerò così muahaha-->
-                                <li @click="removeMessage(message.id)" class="p-2">Cancella messaggio!</li>
+                                <li @click="removeMessage(message.id), resetCurrentMessageID" class="p-2">Cancella
+                                    messaggio!</li>
                             </ul>
                         </div>
                     </li>
