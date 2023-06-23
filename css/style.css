@@ -96,7 +96,17 @@ i:hover {
   color: rgba(0, 0, 0, 0.4);
 }
 /* Chat layout  */
-
+#lastMessage {
+  color: gray;
+  font-size: 0.8rem;
+}
+.dataMessage {
+  font-size: 0.6rem;
+  color: gray;
+  position: absolute;
+  bottom: -12px;
+  right: 5px;
+}
 .chat {
   background-image: url(../img/mine.jpg);
   height: calc(100% - 140px);

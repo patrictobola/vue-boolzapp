@@ -80,7 +80,7 @@
                             <li class="align-self-start flex-grow-1 ms-2">
                                 <ul>
                                     <li>{{contact.name}}</li>
-                                    <li>Da fixare</li>
+                                    <li id="lastMessage">{{contact.messages[contact.messages.length - 1].message}}</li>
                                 </ul>
                             </li>
                             <!-- Contact date message  -->
@@ -134,7 +134,8 @@
                 <ul class="d-flex flex-column px-5">
                     <li v-for="message in currentContact.messages" @click="setCurrentMessageID(message.id)"
                         class="chatMessage" :class="message.status">
-                        {{message.message}}
+                        <p class="m-0 pb-1">{{message.message}}</p>
+                        <span class="dataMessage">{{message.date}}</span>
                         <!-- Piccolo context menù fai da te -->
                         <div id="contextMenu" v-if="currentMessageId === message.id" class="d-flex">
                             <ul class="m-0 bg-white h6">
