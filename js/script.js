@@ -1,4 +1,7 @@
 console.log('JS OK')
+// Estrapolo luxon 
+const dt = luxon.DateTime;
+
 
 // Estrapolo il metodo createApp 
 const { createApp } = Vue;
@@ -207,6 +210,7 @@ const app = createApp({
         newMessage: '',
         currentId: 1,
         currentMessageId: 0,
+
       }
       
       
@@ -227,19 +231,13 @@ const app = createApp({
         return ++highestId
       },
 
-      // Filtro gli ultimi messaggi  
-      filteredMessages () {
-        this.contacts.messages[0].message
-      },
-
-
       // Prendo l'ultimo messaggio di un utente
       lastMessageId () {
         let highestId = this.currentContact.messages.reduce((result, cv) => cv.id > result ? cv.id : result, 0)
         return highestId
       },
 
-
+      // Seleziono il contatto corrente 
       currentContact(){
         return this.contacts.find((contact) =>  contact.id === this.currentId);
       },
@@ -270,39 +268,26 @@ const app = createApp({
       },
 
       // Pusho all'interno dell'oggetto dedicato un nuovo messaggio
-      addNewMessage (statusMessage, message) {
-        const newMessage = {
-          id: this.newIdMessage,
-          date: '',
-          message: message,
-          status: statusMessage
-        }
-        if (message.trim() !== ''){
-
-          this.currentContact.messages.push(newMessage)
-          
-          this.newMessage = ''
-          this.addReceivedMessage('received');
-        }
+      addNewMessage () {
+        this.setMessage(this.newMessage, 'sent')
+        this.newMessage = ''
+        setTimeout(() => {
+          this.setMessage('Ok, daje!', 'received')
+        }, 1000)
       },
 
       // All'invio del messaggio imposto un timer e ricevo una risposta statica dopo 1 secondo di attesa
 
-      // TODO fix 
-      // Ho provato a centralizzarla ma se risfrutto il metodo sopra il setTimeout ogni secondo stampa un messaggio ricevuto.
-      addReceivedMessage (statusMessage) {
-        setTimeout(() => {
-          const newMessage = {
-            id: this.newIdMessage,
-            date: '',
-            message: 'Ok, daje!',
-            status: statusMessage
-          }
-          
-          this.currentContact.messages.push(newMessage)
-        },1000)
+      setMessage (message, status) {
+        if (message.trim() === '' ) return
+        const newMessage = {
+          id: this.newIdMessage,
+          date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
+          message,
+          status
+        }
+        this.currentContact.messages.push(newMessage)
       },
-
 
       
     },

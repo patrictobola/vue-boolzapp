@@ -25,6 +25,9 @@
 
     <!-- CSS Stylesheet  -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- LUXOR date -->
+
+    <script src=" https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js "></script>
 
     <!-- VUE.JS  -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -84,7 +87,7 @@
                                 </ul>
                             </li>
                             <!-- Contact date message  -->
-                            <li class="align-self-start">Ora</li>
+                            <li class="align-self-start">{{contact.messages[contact.messages.length - 1].date}}</li>
                         </ul>
                     </li>
                 </ul>
