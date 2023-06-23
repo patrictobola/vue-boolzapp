@@ -87,7 +87,8 @@
                                 </ul>
                             </li>
                             <!-- Contact date message  -->
-                            <li class="align-self-start">{{contact.messages[contact.messages.length - 1].date}}</li>
+                            <li class="align-self-start">{{contact.messages[contact.messages.length -
+                                1].date.split('').splice(11, 5).join('')}}</li>
                         </ul>
                     </li>
                 </ul>
@@ -116,7 +117,9 @@
                                 <li class="align-self-start flex-grow-1 ms-2">
                                     <ul>
                                         <li>{{currentContact.name}}</li>
-                                        <li>Ultimo accesso alle blabla</li>
+                                        <li>Ultimo accesso alle {{currentContact.messages[currentContact.messages.length
+                                            -
+                                            1].date.split('').splice(11, 5).join('')}}</li>
                                     </ul>
                                 </li>
                             </ul>

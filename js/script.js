@@ -260,8 +260,14 @@ const app = createApp({
       isSelected(target) { 
         if (target === this.currentId)
         return true
-
       },
+
+      // Riduco a ora e minuti una data intera 
+      // spliceDate () {
+      //   return .messages[currentContact.messages.length
+      //     - 1].date.split('').splice(11, 5).join('')
+      // },
+
       // Al click rimuovo un contatto dalla lista 
       removeMessage(target){
         return this.currentContact.messages = this.currentContact.messages.filter(message => target !== message.id)  
