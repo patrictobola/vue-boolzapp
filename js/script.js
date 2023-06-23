@@ -227,10 +227,22 @@ const app = createApp({
         return ++highestId
       },
 
+      // Filtro gli ultimi messaggi  
+      filteredMessages () {
+        this.contacts.messages[0].message
+      },
+
+
+      // Prendo l'ultimo messaggio di un utente
+      lastMessageId () {
+        let highestId = this.currentContact.messages.reduce((result, cv) => cv.id > result ? cv.id : result, 0)
+        return highestId
+      },
+
 
       currentContact(){
         return this.contacts.find((contact) =>  contact.id === this.currentId);
-      }
+      },
     },
 
     methods: {
